@@ -2,7 +2,8 @@
 import "./App.css";
 import Toggle from "./components/toggle/Toggle";
 import Counter from "./components/counter/Counter";
-import Game from "./components/tictactoe/Game";
+import GameWithReducer from "./components/tictactoe/GameWithReducer";
+import DoubleCounter from "./components/counter/DoubleCounter";
 // import YoutubeList from "./components/youtube/YoutubeList";
 // JSX: Javascript XML
 // JS6
@@ -21,7 +22,7 @@ import Game from "./components/tictactoe/Game";
 function App() {
   return (
     <div>
-      <Game></Game>
+      <DoubleCounter></DoubleCounter>
     </div>
   );
 }
