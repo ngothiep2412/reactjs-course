@@ -11,6 +11,7 @@ const Board = (props) => {
           key={index}
           value={item}
           onClick={() => props.onClick(index)}
+          className={item === "X" ? "is-x" : item === "O" ? "is-o" : ""}
         ></Cell>
       ))}
     </div>
