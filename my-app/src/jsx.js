@@ -16,6 +16,7 @@ const jsx = () => {
     ],
   });
   // ternary operator
+  // có ít nhất 1 phần tử cha
   return (
     <div>
       <div className="heading" id="heading">

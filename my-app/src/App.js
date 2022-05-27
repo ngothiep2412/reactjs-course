@@ -1,6 +1,9 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import YoutubeList from "./components/youtube/YoutubeList";
+import Toggle from "./components/toggle/Toggle";
+import Counter from "./components/counter/Counter";
+import Game from "./components/tictactoe/Game";
+// import YoutubeList from "./components/youtube/YoutubeList";
 // JSX: Javascript XML
 // JS6
 // Babel
@@ -16,16 +19,9 @@ import YoutubeList from "./components/youtube/YoutubeList";
 
 // Parent component
 function App() {
-  // const numbers = [1, 2, 3, 4, 5];
-  // const double = numbers.map((item) => item * 2);
-  // console.log(double);
-  const name = "Thiep";
   return (
     <div>
-      <YoutubeList>
-        {/* Children: html, component, text, variable */}
-        <h2>{name}</h2>
-      </YoutubeList>
+      <Game></Game>
     </div>
   );
 }

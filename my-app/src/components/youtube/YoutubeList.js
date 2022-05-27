@@ -22,7 +22,8 @@ const YoutubeList = (props) => {
             className={newClass}
           ></YoutubeItem>
         );
-      })}
+      })}{" "}
+      {/** Nếu ko có return thì xài dấu () còn có return và xử lí thì thêm {} trc return()  */}
     </div>
   );
 };
