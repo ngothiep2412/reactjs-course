@@ -51,7 +51,7 @@ const StyledCard = styled.div`
     span {
       font-weight: 300;
       font-size: 16px;
-      color: #333;
+      color: ${(props) => props.theme.orange};
     }
   }
   .card-meta {
@@ -66,7 +66,7 @@ const StyledCard = styled.div`
     h3 {
       font-weight: 500;
       font-size: 18px;
-      color: black;
+      color: ${(props) => props.theme.colors.blue};
     }
   }
   .card-number {

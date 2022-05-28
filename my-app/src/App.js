@@ -1,9 +1,18 @@
 // import logo from "./logo.svg";
 import "./App.scss";
 // import Card from "./components/card/Card";
-import Card2 from "./components/card/Card2";
+// import Card2 from "./components/card/Card2";
 import CardList from "./components/card/CardList";
-import { GlobalStyles } from "./GlobalStyles";
+import CardTailwind from "./components/card/CardTailwind";
+// import { GlobalStyles } from "./GlobalStyles";
+// import { ThemeProvider } from "styled-components";
+
+// const theme = {
+//   colors: {
+//     blue: "#ff6bcb",
+//   },
+//   orange: "#ffa400",
+// };
 // import Button from "./components/button/Button";
 // import Toggle from "./components/toggle/Toggle";
 // import Counter from "./components/counter/Counter";
@@ -26,10 +35,12 @@ import { GlobalStyles } from "./GlobalStyles";
 // Parent component
 function App() {
   return (
+    // <ThemeProvider theme={theme}>
+    // </ThemeProvider>
     <div>
-      <GlobalStyles></GlobalStyles>
+      {/* <GlobalStyles></GlobalStyles> */}
       <CardList>
-        <Card2 secondary={true}></Card2>
+        <CardTailwind primary={true} fontSize="text-2xl"></CardTailwind>
       </CardList>
     </div>
   );
