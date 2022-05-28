@@ -2,8 +2,9 @@
 import "./App.scss";
 // import Card from "./components/card/Card";
 // import Card2 from "./components/card/Card2";
-import CardList from "./components/card/CardList";
-import CardTailwind from "./components/card/CardTailwind";
+// import CardList from "./components/card/CardList";
+// import CardTailwind from "./components/card/CardTailwind";
+import Photos from "./components/photo/Photos";
 // import { GlobalStyles } from "./GlobalStyles";
 // import { ThemeProvider } from "styled-components";
 
@@ -34,16 +35,7 @@ import CardTailwind from "./components/card/CardTailwind";
 
 // Parent component
 function App() {
-  return (
-    // <ThemeProvider theme={theme}>
-    // </ThemeProvider>
-    <div>
-      {/* <GlobalStyles></GlobalStyles> */}
-      <CardList>
-        <CardTailwind primary={true} fontSize="text-2xl"></CardTailwind>
-      </CardList>
-    </div>
-  );
+  return <Photos></Photos>;
 }
 
 export default App;
