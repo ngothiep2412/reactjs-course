@@ -1,10 +1,11 @@
 // import logo from "./logo.svg";
 import "./App.scss";
+import HackerNews from "./components/news/HackerNews";
 // import Card from "./components/card/Card";
 // import Card2 from "./components/card/Card2";
 // import CardList from "./components/card/CardList";
 // import CardTailwind from "./components/card/CardTailwind";
-import Photos from "./components/photo/Photos";
+// import Photos from "./components/photo/Photos";
 // import { GlobalStyles } from "./GlobalStyles";
 // import { ThemeProvider } from "styled-components";
 
@@ -17,6 +18,8 @@ import Photos from "./components/photo/Photos";
 // import Button from "./components/button/Button";
 // import Toggle from "./components/toggle/Toggle";
 // import Counter from "./components/counter/Counter";
+// import Header from "./components/Header";
+// import Timer from "./components/Timer";
 // import GameWithReducer from "./components/tictactoe/GameWithReducer";
 // import DoubleCounter from "./components/counter/DoubleCounter";
 // import YoutubeList from "./components/youtube/YoutubeList";
@@ -35,7 +38,7 @@ import Photos from "./components/photo/Photos";
 
 // Parent component
 function App() {
-  return <Photos></Photos>;
+  return <HackerNews></HackerNews>;
 }
 
 export default App;
