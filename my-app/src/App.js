@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.scss";
-import HackerNews from "./components/news/HackerNews";
+// import HackerNews from "./components/news/HackerNews";
+import HackerNewsWithReducer from "./components/news/HackerNews copyWithReducer";
 // import Card from "./components/card/Card";
 // import Card2 from "./components/card/Card2";
 // import CardList from "./components/card/CardList";
@@ -38,7 +39,7 @@ import HackerNews from "./components/news/HackerNews";
 
 // Parent component
 function App() {
-  return <HackerNews></HackerNews>;
+  return <HackerNewsWithReducer></HackerNewsWithReducer>;
 }
 
 export default App;
