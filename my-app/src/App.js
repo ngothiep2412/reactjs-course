@@ -1,7 +1,13 @@
 // import logo from "./logo.svg";
+// import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
+import Blog from "./components/Blog";
+import Dropdown from "./components/Dropdown";
+// import Input from "./components/Input";
+// import TextAreaAutoResize from "./components/TextAreaAutoResize";
+// import StopWatch from "./components/StopWatch";
 // import HackerNews from "./components/news/HackerNews";
-import HackerNewsWithReducer from "./components/news/HackerNews copyWithReducer";
+// import HackerNewsWithReducer from "./components/news/HackerNews copyWithReducer";
 // import Card from "./components/card/Card";
 // import Card2 from "./components/card/Card2";
 // import CardList from "./components/card/CardList";
@@ -39,7 +45,33 @@ import HackerNewsWithReducer from "./components/news/HackerNews copyWithReducer"
 
 // Parent component
 function App() {
-  return <HackerNewsWithReducer></HackerNewsWithReducer>;
+  // // const inputRef, abcRef = React.useRef(initialValue);
+  // const countRef = React.useRef(0);
+
+  // const handler = () => {
+  //   // truy xuất giá trị của ref
+  //   console.log(countRef.current);
+  //   // update giá trị của ref
+  //   countRef.current = 10; // State thay đổi thì component re-render lại còn ref thì không
+  // };
+  // const countRef = React.useRef(0);
+  // const [count, setCount] = React.useState(0);
+  // const handle = () => {
+  //   const updateCount = countRef.current + 1;
+  //   console.log(`CLicked ${updateCount} times`);
+  //   countRef.current++;
+  // };
+  // console.log("Render");
+  // state là bất đồng bộ đợi component re-render lại r mới cập nhật và ref đồng bộ cập nhật ngay lập tức
+
+  // useEffect(() => {
+  //   const timer = setInterval();
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, []);
+
+  return <Blog></Blog>;
 }
 
 export default App;

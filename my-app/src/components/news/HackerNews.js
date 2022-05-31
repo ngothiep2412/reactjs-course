@@ -37,7 +37,7 @@ const HackerNews = () => {
           className="border border-gray-200 block w-full rounded-md p-5 transition-all focus:border-blue-400"
           placeholder="Typing your keyword..."
           defaultValue={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleUpdateQuery}
         />
         <button
           onClick={() =>
