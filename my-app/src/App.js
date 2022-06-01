@@ -1,12 +1,12 @@
 // import logo from "./logo.svg";
-// import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
 import Blog from "./components/Blog";
 import Dropdown from "./components/Dropdown";
 // import Input from "./components/Input";
 // import TextAreaAutoResize from "./components/TextAreaAutoResize";
 // import StopWatch from "./components/StopWatch";
-// import HackerNews from "./components/news/HackerNews";
+import HackerNews from "./components/news/HackerNews";
 // import HackerNewsWithReducer from "./components/news/HackerNews copyWithReducer";
 // import Card from "./components/card/Card";
 // import Card2 from "./components/card/Card2";
@@ -70,8 +70,13 @@ function App() {
   //     clearInterval(timer);
   //   };
   // }, []);
-
-  return <Blog></Blog>;
+  const [show, setShow] = React.useState(false);
+  return (
+    <div>
+      <button onClick={() => setShow(!show)}>Toggle Button</button>
+      {show && <HackerNews></HackerNews>}
+    </div>
+  );
 }
 
 export default App;

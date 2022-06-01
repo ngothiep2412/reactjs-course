@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import lodash from "lodash";
 // https://hn.algolia.com/api/v1/search?query=react
@@ -12,6 +12,13 @@ const HackerNews = () => {
     `https://hn.algolia.com/api/v1/search?query=${query}`
   );
 
+  const isMounted = useRef(true);
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  });
+
   const handleUpdateQuery = lodash.debounce((e) => {
     setQuery(e.target.value);
   }, 500);
@@ -19,8 +26,12 @@ const HackerNews = () => {
     setLoading(true);
     try {
       const response = await axios.get(url);
-      setHits(response.data?.hits || []); // Optional chaining
-      setLoading(false);
+      setTimeout(() => {
+        if (isMounted.current) {
+          setHits(response.data?.hits || []); // Optional chaining
+          setLoading(false);
+        }
+      }, 3000);
     } catch (error) {
       setLoading(false);
       setErrorMessage(`The error was happeing ${error}`);
