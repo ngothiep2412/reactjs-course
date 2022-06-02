@@ -14,10 +14,11 @@ const HackerNews = () => {
 
   const isMounted = useRef(true);
   useEffect(() => {
+    isMounted.current = true;
     return () => {
       isMounted.current = false;
     };
-  });
+  }, []);
 
   const handleUpdateQuery = lodash.debounce((e) => {
     setQuery(e.target.value);
