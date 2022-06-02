@@ -1,33 +1,17 @@
-import React, { useRef, useState } from "react";
+import React from "react";
+import useClickOutSide from "../hooks/useClickOutSide";
 
 const Dropdown = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const handleClick = () => {
-    setShowDropdown(!showDropdown);
-  };
-  React.useEffect(() => {
-    function handleClickOutDropdown(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setShowDropdown(false);
-      }
-    }
-    document.addEventListener("click", handleClickOutDropdown);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutDropdown);
-    };
-  }, []);
+  const { show, setShow, nodeRef: dropdownRef } = useClickOutSide();
   return (
     <div className="relative w-full max-w-[400px]" ref={dropdownRef}>
       <div
         className="p-5 border border-gray-200 rounded-lg w-full cursor-pointer"
-        onClick={handleClick}
+        onClick={(e) => setShow(!show)}
       >
         Selected
       </div>
-      {showDropdown && (
+      {show && (
         <div className="border border-gray-200 rounded-lg absolute top-full left-0 w-full bg-white ">
           <div className="p-5 cursor-pointer">Javascript</div>
           <div className="p-5 cursor-pointer">ReactJs</div>
