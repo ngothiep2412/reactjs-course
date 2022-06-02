@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
 import Form2 from "./components/form/Fom2";
 import Form from "./components/form/Form";
+import MovieSearchApp from "./components/MovieSearchApp";
 // import Blog from "./components/Blog";
 // import Dropdown from "./components/Dropdown";
 // import SidebarMenu from "./components/SidebarMenu";
@@ -79,7 +80,7 @@ function App() {
   // const [show, setShow] = React.useState(false);
   return (
     <div>
-      <Form2></Form2>
+      <MovieSearchApp></MovieSearchApp>
     </div>
   );
 }
