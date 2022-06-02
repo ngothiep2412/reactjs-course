@@ -1,10 +1,12 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
+import Form2 from "./components/form/Fom2";
+import Form from "./components/form/Form";
 // import Blog from "./components/Blog";
 // import Dropdown from "./components/Dropdown";
-import SidebarMenu from "./components/SidebarMenu";
-import useClickOutSide from "./hooks/useClickOutSide";
+// import SidebarMenu from "./components/SidebarMenu";
+// import useClickOutSide from "./hooks/useClickOutSide";
 
 // import Input from "./components/Input";
 // import TextAreaAutoResize from "./components/TextAreaAutoResize";
@@ -75,16 +77,9 @@ function App() {
   //   };
   // }, []);
   // const [show, setShow] = React.useState(false);
-  const { show, setShow, nodeRef } = useClickOutSide("span");
   return (
     <div>
-      <button
-        className="inline-block m-3 p-3 rounded-lg text-white bg-green-400 cursor-pointer"
-        onClick={() => setShow(true)}
-      >
-        Show menu
-      </button>
-      <SidebarMenu show={show} ref={nodeRef}></SidebarMenu>
+      <Form2></Form2>
     </div>
   );
 }
