@@ -2,7 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
 // import Blog from "./components/Blog";
-import Dropdown from "./components/Dropdown";
+// import Dropdown from "./components/Dropdown";
+import SidebarMenu from "./components/SidebarMenu";
+import useClickOutSide from "./hooks/useClickOutSide";
+
 // import Input from "./components/Input";
 // import TextAreaAutoResize from "./components/TextAreaAutoResize";
 // import StopWatch from "./components/StopWatch";
@@ -72,9 +75,16 @@ function App() {
   //   };
   // }, []);
   // const [show, setShow] = React.useState(false);
+  const { show, setShow, nodeRef } = useClickOutSide("span");
   return (
     <div>
-      <Dropdown></Dropdown>
+      <button
+        className="inline-block m-3 p-3 rounded-lg text-white bg-green-400 cursor-pointer"
+        onClick={() => setShow(true)}
+      >
+        Show menu
+      </button>
+      <SidebarMenu show={show} ref={nodeRef}></SidebarMenu>
     </div>
   );
 }
