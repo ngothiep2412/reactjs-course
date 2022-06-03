@@ -1,9 +1,11 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
-import Form2 from "./components/form/Fom2";
-import Form from "./components/form/Form";
-import MovieSearchApp from "./components/MovieSearchApp";
+// import SignUpForm from "./components/form/SignUpForm";
+import SignUpFormV2 from "./components/form/SignUpFormV2";
+// import Form2 from "./components/form/Fom2";
+// import Form from "./components/form/Form";
+// import MovieSearchApp from "./components/MovieSearchApp";
 // import Blog from "./components/Blog";
 // import Dropdown from "./components/Dropdown";
 // import SidebarMenu from "./components/SidebarMenu";
@@ -80,7 +82,7 @@ function App() {
   // const [show, setShow] = React.useState(false);
   return (
     <div>
-      <MovieSearchApp></MovieSearchApp>
+      <SignUpFormV2></SignUpFormV2>
     </div>
   );
 }
