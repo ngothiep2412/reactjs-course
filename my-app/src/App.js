@@ -1,8 +1,9 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
+import SignUpFormFinal from "./components/form/SignUpFormFinal";
 // import SignUpForm from "./components/form/SignUpForm";
-import SignUpFormV2 from "./components/form/SignUpFormV2";
+// import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import Form2 from "./components/form/Fom2";
 // import Form from "./components/form/Form";
 // import MovieSearchApp from "./components/MovieSearchApp";
@@ -82,7 +83,7 @@ function App() {
   // const [show, setShow] = React.useState(false);
   return (
     <div>
-      <SignUpFormV2></SignUpFormV2>
+      <SignUpFormFinal></SignUpFormFinal>
     </div>
   );
 }
