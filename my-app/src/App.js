@@ -1,7 +1,8 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState } from "react";
 import "./App.scss";
-import SignUpFormFinal from "./components/form/SignUpFormFinal";
+// import SignUpFormFinal from "./components/form/SignUpFormFinal";
+import SignUpFormHook from "./components/form/SignUpFormHook";
 // import SignUpForm from "./components/form/SignUpForm";
 // import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import Form2 from "./components/form/Fom2";
@@ -83,7 +84,7 @@ function App() {
   // const [show, setShow] = React.useState(false);
   return (
     <div>
-      <SignUpFormFinal></SignUpFormFinal>
+      <SignUpFormHook></SignUpFormHook>
     </div>
   );
 }
