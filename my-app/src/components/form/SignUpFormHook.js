@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -19,15 +19,11 @@ const SignUpFormHook = () => {
   const {
     register,
     handleSubmit,
-    formState: {
-      errors,
-      isSubmitting,
-      isValid,
-      isDirty,
-      dirtyFields,
-      isSubmitted,
-      submitCount,
-    },
+    formState: { errors, isSubmitting, isValid },
+    watch,
+    reset,
+    setFocus,
+    setValue,
   } = useForm({
     resolver: yupResolver(schemaValidation),
     mode: "onChange",
@@ -37,9 +33,17 @@ const SignUpFormHook = () => {
   // console.log(dirtyFields);
   // console.log(submitCount);
   // errors = formState.erros
+  const watchShowAge = watch("showAge", false);
   const onSubmit = async (values) => {
-    if (submitCount === 1) {
-      console.log("Not Submit");
+    if (isValid) {
+      console.log("Send data to backend");
+      // after successfully submitted
+      // then reset form
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
     }
     // const reponse = await axios.get(
     //   "https://hn.algolia.com/api/v1/search?query=react"
@@ -51,6 +55,14 @@ const SignUpFormHook = () => {
     //     console.log(values);
     //   }, 5000);
     // });
+  };
+  useEffect(() => {
+    setFocus("firstName");
+  }, [setFocus]);
+  const handleSetDemoData = () => {
+    setValue("firstName", "Thiệp");
+    setValue("lastName", "Ngô");
+    setValue("email", "ngothiep@gmail.com");
   };
   return (
     <form
@@ -106,6 +118,12 @@ const SignUpFormHook = () => {
           <div className="text-red-500 text-sm">{errors.email?.message}</div>
         )}
       </div>
+      <div className="flex flex-col gap-2 mb-5">
+        <input type="checkbox" {...register("showAge")} />
+        {watchShowAge && (
+          <input type="number" placeholder="Please enter your age" />
+        )}
+      </div>
       <div>
         <button
           type="submit"
@@ -116,6 +134,11 @@ const SignUpFormHook = () => {
           ) : (
             "Submit"
           )}
+        </button>
+      </div>
+      <div>
+        <button className="p-3 bg-green-400" onClick={handleSetDemoData}>
+          Demo data
         </button>
       </div>
     </form>
