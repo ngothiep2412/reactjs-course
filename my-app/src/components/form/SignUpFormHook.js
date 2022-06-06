@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import axios from "axios";
@@ -24,6 +24,7 @@ const SignUpFormHook = () => {
     reset,
     setFocus,
     setValue,
+    control,
   } = useForm({
     resolver: yupResolver(schemaValidation),
     mode: "onChange",
@@ -107,13 +108,19 @@ const SignUpFormHook = () => {
       </div>
       <div className="flex flex-col gap-2 mb-5">
         <label htmlFor="email">Email</label>
-        <input
+        <MyInput
+          name="email"
+          placeholder="Enter your email..."
+          id="email"
+          control={control}
+        ></MyInput>
+        {/* <input
           type="email"
           id="email"
           placeholder="Enter your email..."
           className="p-4 rounded-md border border-gray-200"
           {...register("email")}
-        />
+        /> */}
         {errors.email && (
           <div className="text-red-500 text-sm">{errors.email?.message}</div>
         )}
@@ -142,6 +149,23 @@ const SignUpFormHook = () => {
         </button>
       </div>
     </form>
+  );
+};
+
+const MyInput = ({ control, ...props }) => {
+  return (
+    <Controller
+      name={props.name}
+      control={control}
+      defaultValue=""
+      render={({ field }) => (
+        <input
+          className="p-4 rounded-md border border-gray-200"
+          {...field}
+          {...props}
+        />
+      )}
+    ></Controller>
   );
 };
 
