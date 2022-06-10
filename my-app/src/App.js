@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Fragment } from "react";
 import "./App.scss";
 // import SignUpFormFinal from "./components/form/SignUpFormFinal";
 import SignUpFormHook from "./components/form/SignUpFormHook";
@@ -82,11 +82,24 @@ function App() {
   //   };
   // }, []);
   // const [show, setShow] = React.useState(false);
+  const firstName = "Thiep";
+  const lastName = "Ngo";
+  const [on, setOn] = useState(true);
   return (
-    <div>
-      <SignUpFormHook></SignUpFormHook>
-    </div>
+    <Fragment>
+      <div className="relative z-10">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50">
+          <div className="w-full max-w-[350px] mx-auto bg-white p-10 rounded-lg"></div>
+        </div>
+      </div>
+      <div className="relative z-30">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
+        quibusdam recusandae libero aliquid autem. Voluptatem eveniet unde
+        facere! Corrupti debitis nobis perspiciatis architecto provident.
+        Nesciunt ducimus autem corporis. Reprehenderit?
+      </div>
+    </Fragment>
   );
 }
-
+// Fragments
 export default App;
