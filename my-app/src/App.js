@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState, Fragment } from "react";
 import "./App.scss";
 // import SignUpFormFinal from "./components/form/SignUpFormFinal";
 import SignUpFormHook from "./components/form/SignUpFormHook";
+import Modal from "./components/modal/Modal";
 // import SignUpForm from "./components/form/SignUpForm";
 // import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import Form2 from "./components/form/Fom2";
@@ -87,10 +88,8 @@ function App() {
   const [on, setOn] = useState(true);
   return (
     <Fragment>
-      <div className="relative z-10">
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50">
-          <div className="w-full max-w-[350px] mx-auto bg-white p-10 rounded-lg"></div>
-        </div>
+      <div>
+        <Modal></Modal>
       </div>
       <div className="relative z-30">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
