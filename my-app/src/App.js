@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState, Fragment } from "react";
 import "./App.scss";
+import DropdownPortal from "./components/DropdownPortal";
 // import SignUpFormFinal from "./components/form/SignUpFormFinal";
 import SignUpFormHook from "./components/form/SignUpFormHook";
 import Modal from "./components/modal/Modal";
@@ -83,20 +84,30 @@ function App() {
   //   };
   // }, []);
   // const [show, setShow] = React.useState(false);
-  const firstName = "Thiep";
-  const lastName = "Ngo";
-  const [on, setOn] = useState(true);
+  // const firstName = "Thiep";
+  // const lastName = "Ngo";
+  // const [on, setOn] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   return (
     <Fragment>
-      <div>
-        <Modal></Modal>
+      <div className="relative p-2">
+        <Modal open={showModal} handleClose={() => setShowModal(false)}></Modal>
       </div>
+      <button
+        className="p-4 text-white bg-blue-500 rounded-md"
+        onClick={() => setShowModal(true)}
+      >
+        Show modal
+      </button>
       <div className="relative z-30">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
         quibusdam recusandae libero aliquid autem. Voluptatem eveniet unde
         facere! Corrupti debitis nobis perspiciatis architecto provident.
         Nesciunt ducimus autem corporis. Reprehenderit?
       </div>
+      {/* <div className="overflow-hidden p-5">
+        <DropdownPortal></DropdownPortal>
+      </div> */}
     </Fragment>
   );
 }
