@@ -5,6 +5,7 @@ import DropdownPortal from "./components/DropdownPortal";
 // import SignUpFormFinal from "./components/form/SignUpFormFinal";
 import SignUpFormHook from "./components/form/SignUpFormHook";
 import Modal from "./components/modal/Modal";
+import Tooltip from "./components/tooltip/Tooltip";
 // import SignUpForm from "./components/form/SignUpForm";
 // import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import Form2 from "./components/form/Fom2";
@@ -90,7 +91,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   return (
     <Fragment>
-      <div className="relative p-2">
+      {/* <div className="relative p-2">
         <Modal open={showModal} handleClose={() => setShowModal(false)}></Modal>
       </div>
       <button
@@ -98,16 +99,19 @@ function App() {
         onClick={() => setShowModal(true)}
       >
         Show modal
-      </button>
-      <div className="relative z-30">
+      </button> */}
+      {/* <div className="relative z-30">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
         quibusdam recusandae libero aliquid autem. Voluptatem eveniet unde
         facere! Corrupti debitis nobis perspiciatis architecto provident.
         Nesciunt ducimus autem corporis. Reprehenderit?
-      </div>
+      </div> */}
       {/* <div className="overflow-hidden p-5">
         <DropdownPortal></DropdownPortal>
       </div> */}
+      <div className="p-16 mt-16 ml-16 overflow-hidden">
+        <Tooltip text="Hover me">This is a tooltip content</Tooltip>
+      </div>
     </Fragment>
   );
 }

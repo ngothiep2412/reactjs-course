@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from "react";
 export default function useHover() {
   // mouseover
   // mouseout
-  const [hoverd, sethoverd] = useState(false);
+  const [hovered, sethovered] = useState(false);
   const nodeRef = useRef(null);
 
   useEffect(() => {
     function handleMouseOver() {
-      sethoverd(true);
+      sethovered(true);
     }
     function handleMouseOut() {
-      sethoverd(false);
+      sethovered(false);
     }
     const dom = nodeRef.current;
     if (nodeRef.current) {
@@ -24,7 +24,7 @@ export default function useHover() {
     }
   }, []);
   return {
-    hoverd,
+    hovered,
     nodeRef,
   };
 }
