@@ -49,7 +49,7 @@ const Game = () => {
   // const action = {type: "CLICK", payload: {}}
   // dispatch({type: "CLICK"})
   // dispatch(action)
-  const winner = calculateWinner(state.board);
+  const winner = calculateWinner(state.board2);
   const handleClick = (index) => {
     // const boardCopy = [...state.board];
     // if (winner || boardCopy[index]) {

@@ -1,11 +1,11 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useRef, useState, Fragment } from "react";
 import "./App.scss";
-import DropdownPortal from "./components/DropdownPortal";
+// import DropdownPortal from "./components/DropdownPortal";
 // import SignUpFormFinal from "./components/form/SignUpFormFinal";
-import SignUpFormHook from "./components/form/SignUpFormHook";
-import Modal from "./components/modal/Modal";
-import Tooltip from "./components/tooltip/Tooltip";
+// import SignUpFormHook from "./components/form/SignUpFormHook";
+// import Modal from "./components/modal/Modal";
+// import Tooltip from "./components/tooltip/Tooltip";
 // import SignUpForm from "./components/form/SignUpForm";
 // import SignUpFormV2 from "./components/form/SignUpFormV2";
 // import Form2 from "./components/form/Fom2";
@@ -41,7 +41,8 @@ import Tooltip from "./components/tooltip/Tooltip";
 // import Counter from "./components/counter/Counter";
 // import Header from "./components/Header";
 // import Timer from "./components/Timer";
-// import GameWithReducer from "./components/tictactoe/GameWithReducer";
+import GameWithReducer from "./components/tictactoe/GameWithReducer";
+import { ErrorBoundary } from "react-error-boundary";
 // import DoubleCounter from "./components/counter/DoubleCounter";
 // import YoutubeList from "./components/youtube/YoutubeList";
 // JSX: Javascript XML
@@ -56,6 +57,16 @@ import Tooltip from "./components/tooltip/Tooltip";
  * ...children (phần tử con):
  */
 // curly bases {}
+
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <div role="alert" className="p-5 bg-red-100">
+      <p className="text-red-600">
+        Cannot get your data cause component are erroring
+      </p>
+    </div>
+  );
+}
 
 // Parent component
 function App() {
@@ -90,29 +101,32 @@ function App() {
   // const [on, setOn] = useState(true);
   const [showModal, setShowModal] = useState(false);
   return (
-    <Fragment>
-      {/* <div className="relative p-2">
-        <Modal open={showModal} handleClose={() => setShowModal(false)}></Modal>
-      </div>
-      <button
-        className="p-4 text-white bg-blue-500 rounded-md"
-        onClick={() => setShowModal(true)}
-      >
-        Show modal
-      </button> */}
-      {/* <div className="relative z-30">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
-        quibusdam recusandae libero aliquid autem. Voluptatem eveniet unde
-        facere! Corrupti debitis nobis perspiciatis architecto provident.
-        Nesciunt ducimus autem corporis. Reprehenderit?
-      </div> */}
-      {/* <div className="overflow-hidden p-5">
-        <DropdownPortal></DropdownPortal>
-      </div> */}
-      <div className="p-16 mt-16 ml-16 overflow-hidden">
-        <Tooltip text="Hover me">This is a tooltip content</Tooltip>
-      </div>
-    </Fragment>
+    // <Fragment>
+    //   <div className="relative p-2">
+    //     <Modal open={showModal} handleClose={() => setShowModal(false)}></Modal>
+    //   </div>
+    //   <button
+    //     className="p-4 text-white bg-blue-500 rounded-md"
+    //     onClick={() => setShowModal(true)}
+    //   >
+    //     Show modal
+    //   </button>
+    //   <div className="relative z-30">
+    //     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus in
+    //     quibusdam recusandae libero aliquid autem. Voluptatem eveniet unde
+    //     facere! Corrupti debitis nobis perspiciatis architecto provident.
+    //     Nesciunt ducimus autem corporis. Reprehenderit?
+    //   </div>
+    //   <div className="overflow-hidden p-5">
+    //     <DropdownPortal></DropdownPortal>
+    //   </div>
+    //   <div className="p-16 mt-16 ml-16 overflow-hidden">
+    //     <Tooltip text="Hover me">This is a tooltip content</Tooltip>
+    //   </div>
+    // </Fragment>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <GameWithReducer></GameWithReducer>
+    </ErrorBoundary>
   );
 }
 // Fragments
