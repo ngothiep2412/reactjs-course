@@ -1,6 +1,7 @@
 import React from "react";
 // createPortal
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 const Modal = ({ open = false, handleClose = () => {} }) => {
   if (typeof document === "undefined") return <div className="modal"></div>;
   // react render mà document hong có thì ko bị lỗi
@@ -67,5 +68,10 @@ const Modal = ({ open = false, handleClose = () => {} }) => {
     document.querySelector("body")
   );
 };
-
+Modal.prototype = {
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};
+// việc sử dụng prototype phát triển component tốt hơn, component này cần phải biết
+// những props nào, các props đó có bắt buộc hay kiểu dữ liệu props là gì
 export default Modal;
