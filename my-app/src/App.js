@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
+import PhotoList from "./components/gallery/PhotoList";
 import HeaderMain from "./components/HeaderMain";
 import { AuthProvider } from "./context/auth-context";
 import { CountProvider, useCount } from "./context/countContext";
+import { GalleryProvider } from "./context/galleryContext";
 
 function DisplayCount() {
   const [count] = useCount();
@@ -32,7 +34,10 @@ function App() {
         </CountProvider>
       </div> */}
       <AuthProvider>
-        <HeaderMain></HeaderMain>
+        <GalleryProvider>
+          <HeaderMain></HeaderMain>
+          <PhotoList></PhotoList>
+        </GalleryProvider>
       </AuthProvider>
     </Fragment>
   );
