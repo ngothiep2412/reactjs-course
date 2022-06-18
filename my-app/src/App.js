@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import CartList from "./components/gallery/CartList";
 import PhotoList from "./components/gallery/PhotoList";
 import HeaderMain from "./components/HeaderMain";
 import { AuthProvider } from "./context/auth-context";
@@ -37,6 +38,7 @@ function App() {
         <GalleryProvider>
           <HeaderMain></HeaderMain>
           <PhotoList></PhotoList>
+          <CartList></CartList>
         </GalleryProvider>
       </AuthProvider>
     </Fragment>

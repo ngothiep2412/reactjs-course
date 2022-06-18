@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { createContext } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const fakeData = [
   {
@@ -36,8 +37,13 @@ const fakeData = [
 
 const GalleryContext = createContext();
 function GalleryProvider(props) {
-  const [photos, setPhotos] = useState(fakeData);
-  const [cartItems, setCartItems] = useState([]);
+  const { storedValue, setValue } = useLocalStorage("photos", fakeData);
+  const { storedValue: storedCart, setValue: setStoredCart } = useLocalStorage(
+    "cartItems",
+    []
+  );
+  const [photos, setPhotos] = useState(storedValue);
+  const [cartItems, setCartItems] = useState(storedCart);
   const [favoriteList, setFavoriteList] = useState([]);
 
   function toggleFavorite(photoId) {
@@ -48,6 +54,29 @@ function GalleryProvider(props) {
       return photo;
     });
     setPhotos(updateArray);
+    setValue(updateArray);
+  }
+  // 1. Viết function addToCart
+  // 2. Function addtoCart truyền param là photo
+  function addToCart(newItem) {
+    // 3. Cập nhật lại state giỏ hàng cartItems
+    setCartItems((previousItems) => {
+      const isExisted = previousItems.some((item) => item.id === newItem.id);
+      if (isExisted) {
+        setStoredCart([...previousItems]);
+        return [...previousItems];
+      }
+      setStoredCart([...previousItems, newItem]);
+      return [...previousItems, newItem];
+    });
+  }
+
+  function removeFromCart(photoId) {
+    setCartItems((previousItems) => {
+      const result = previousItems.filter((item) => item.id !== photoId);
+      setStoredCart(result);
+      return result;
+    });
   }
 
   const value = {
@@ -58,6 +87,8 @@ function GalleryProvider(props) {
     setCartItems,
     setFavoriteList,
     toggleFavorite,
+    addToCart,
+    removeFromCart,
   };
   return (
     <GalleryContext.Provider value={value} {...props}></GalleryContext.Provider>

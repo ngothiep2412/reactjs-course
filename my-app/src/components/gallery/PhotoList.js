@@ -2,7 +2,8 @@ import React from "react";
 import { useGallery } from "../../context/galleryContext";
 import PropsTypes from "prop-types";
 const PhotoList = () => {
-  const { photos } = useGallery();
+  const { photos, cartItems } = useGallery();
+  console.log(cartItems);
   return (
     <div className="py-10 px-5">
       <div className="grid grid-cols-4 gap-5">
@@ -15,8 +16,8 @@ const PhotoList = () => {
   );
 };
 const PhotoItem = ({ info: { url, isLike, id } }) => {
-  const { toggleFavorite } = useGallery();
-  console.log(isLike);
+  const { toggleFavorite, addToCart } = useGallery();
+  const item = { url, isLike, id };
   return (
     <div className="relative h-[300px] cursor-pointer group">
       <img src={url} alt="" className="w-full h-full object-cover" />
@@ -44,6 +45,7 @@ const PhotoItem = ({ info: { url, isLike, id } }) => {
         className="py-3 px-6 text-sm font-medium bg-white rounded-lg 
       text-black absolute bottom-5 left-2/4 -translate-x-2/4
        opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
+        onClick={() => addToCart(item)}
       >
         Add to cart
       </button>
