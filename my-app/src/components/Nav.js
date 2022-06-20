@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 const ListLink = [
   {
     id: 1,
@@ -24,17 +24,21 @@ const ListLink = [
 ];
 const Nav = () => {
   return (
-    <div className="p-5 bg-white shadow-md flex items-center justify-center gap-x-5">
-      {ListLink.map((item) => (
-        <NavLink
-          to={item.to}
-          className={({ isActive }) => (isActive ? "text-green-400" : "")}
-          key={item.id}
-        >
-          {item.title}
-        </NavLink>
-      ))}
-    </div>
+    <>
+      <div className="p-5 bg-white shadow-md flex items-center justify-center gap-x-5">
+        {ListLink.map((item) => (
+          <NavLink
+            to={item.to}
+            className={({ isActive }) => (isActive ? "text-green-400" : "")}
+            key={item.id}
+          >
+            {item.title}
+          </NavLink>
+        ))}
+      </div>
+      <Outlet></Outlet>
+      {/* Outlet như children hiển thị content */}
+    </>
   );
 };
 
