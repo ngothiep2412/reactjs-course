@@ -1,47 +1,18 @@
 import React, { useState } from "react";
-import Switch from "./components/swtich/Switch";
-function useToggle() {
-  const [on, setOn] = useState(false);
-  const toggle = () => setOn(!on);
-  function getToggleProps({ onClick, ...rest } = {}) {
-    return {
-      onClick: () => {
-        onClick && onClick();
-        toggle();
-      },
-      ...rest,
-    };
-  }
-  // toggleProps
-  return {
-    on,
-    toggle,
-    getToggleProps,
-    // toggleProps: {
-    //   onClick: toggle,
-    // },
-  };
-}
+import Couter from "./components/advanced_react/control-props/Couter";
+
 // Props collection  - Kentc Dodds - creator of Remix
 // Props getter
+// Control props
 function App() {
-  const { on, toggleProps, getToggleProps } = useToggle();
+  const [count, setCount] = useState(5);
+  const handleCountChange = (newCount) => {
+    setCount(newCount);
+  };
   return (
     <div>
-      <Switch {...getToggleProps({ on })}></Switch>
-      <hr />
-      <button
-        aria-label="custom-button"
-        {...getToggleProps({
-          onClick: () => console.info("onButtonClick"),
-        })}
-        // onClick={() => {
-        //   console.log("toggle");
-        //   toggle();
-        // }}
-      >
-        {on ? "on" : "off"}
-      </button>
+      {/* <Couter value={count} onChange={handleCountChange}></Couter> */}
+      <Couter></Couter>
     </div>
   );
 }
