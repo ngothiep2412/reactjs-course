@@ -1,16 +1,35 @@
-import React from "react";
-import Accordion from "./components/advanced_react/react-composition/Accordion";
-import Editable from "./components/advanced_react/react-composition/Editable";
+import React, { useState } from "react";
+import Switch from "./components/swtich/Switch";
+function useToggle() {
+  const [on, setOn] = useState(false);
+  const toggle = () => setOn(!on);
+  // toggleProps
+  return {
+    on,
+    toggle,
+    toggleProps: {
+      onClick: toggle,
+    },
+  };
+}
+// Props collection  - Kentc Dodds - creator of Remix
+// Props getter
 function App() {
+  const { on, toggleProps } = useToggle();
   return (
-    <div className="p-10 w-full max-w-[600px] mx-auto">
-      <Accordion header="Can I change my plan later ?">
-        <div>No Sir!</div>
-      </Accordion>
-      <Accordion header="Can I become a front-end developer ?">
-        <div>Yes, you can</div>
-      </Accordion>
-      {/* <Editable></Editable> */}
+    <div>
+      <Switch on={on} {...toggleProps}></Switch>
+      <hr />
+      <button
+        aria-label="custom-button"
+        {...toggleProps}
+        // onClick={() => {
+        //   console.log("toggle");
+        //   toggle();
+        // }}
+      >
+        {on ? "on" : "off"}
+      </button>
     </div>
   );
 }

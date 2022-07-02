@@ -4,6 +4,8 @@ import AccordionContent from "./AccordionContent";
 import AccordionHeader from "./AccordionHeader";
 // Specialized component
 // Container component
+// Compound component
+// props drilling
 const Accordion = ({ header, children }) => {
   return (
     <AccordionProvider>
