@@ -1,11 +1,10 @@
 import React from "react";
-import FetchingData from "./components/advanced_react/hoc/FetchingData";
-import FetchingDataOther from "./components/advanced_react/hoc/FetchingDataOther";
-// HOC = higher order component pattern
+import HandleValue from "./components/advanced_react/render-props/HandleValue";
 function App() {
   return (
     <div>
-      <FetchingDataOther></FetchingDataOther>
+      {/* <Title>{() => <h1>Hello from render props </h1>}</Title> */}
+      <HandleValue></HandleValue>
     </div>
   );
 }
