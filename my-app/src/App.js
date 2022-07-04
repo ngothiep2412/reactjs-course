@@ -1,30 +1,49 @@
-import React, { useState } from "react";
-import Couter from "./components/advanced_react/state-reducer/Couter";
-import useCouter from "./components/advanced_react/state-reducer/useCouter";
-
-// Props collection  - Kentc Dodds - creator of Remix
-// Props getter
-// Control props
+import React, { Fragment } from "react";
+import { useState } from "react";
+import { Dropdown } from "./components/advanced_react/inversion-of-control";
+const options = [
+  {
+    title: "Frontend Developer",
+  },
+  {
+    title: "Backend Developer",
+  },
+  {
+    title: "Fullstack Developer",
+  },
+];
 function App() {
-  const useReducer = (state, action) => {
-    switch (action.type) {
-      case "decrement":
-        return {
-          count: state.count - 5,
-        };
-      default:
-        return useCouter.reducer(state, action);
-    }
+  const [job, setJob] = useState("");
+  const [filter, setFilter] = useState("");
+  const handleSelectJob = (newJob) => {
+    setJob(newJob);
   };
-  const { count, handleDecrement, handleIncrement } = useCouter(useReducer);
   return (
-    <div>
-      <Couter
-        count={count}
-        handleDecrement={handleDecrement}
-        handleIncrement={handleIncrement}
-      ></Couter>
-    </div>
+    <Fragment>
+      {/* <Dropdown
+        options={options}
+        placeholder="Please select your job"
+        inputPlaceholder="Search your job..."
+        visibleIconCheck
+        visibleInputSearch
+      ></Dropdown> */}
+      <Dropdown
+        placeholder={`${job || "Select your job"}`}
+        inputPlaceholder="Search your job...."
+        onClick={handleSelectJob}
+        onChange={(e) => setFilter(e.target.value)}
+      >
+        <div className="options border border-gray-300 rounded">
+          {options.map((options) => (
+            <Dropdown.Option key={options.title}>
+              <span>{options.title}</span>
+              <Dropdown.IconCheck></Dropdown.IconCheck>
+            </Dropdown.Option>
+          ))}
+          {/* <Dropdown.Search></Dropdown.Search> */}
+        </div>
+      </Dropdown>
+    </Fragment>
   );
 }
 
