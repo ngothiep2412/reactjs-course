@@ -9,6 +9,10 @@ import {
   serverTimestamp,
   updateDoc,
   getDoc,
+  where,
+  orderBy,
+  limit,
+  query,
 } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
@@ -57,9 +61,9 @@ const FirebaseApp = () => {
     // getDoc(docRefSingle).then((doc) => {
     //   console.log(doc.id, doc.data());
     // });
-    onSnapshot(docRefSingle, (doc) => {
-      console.log(doc.id, doc.data());
-    });
+    // onSnapshot(docRefSingle, (doc) => {
+    //   console.log(doc.id, doc.data());
+    // });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const handleAddPost = (e) => {
@@ -97,6 +101,28 @@ const FirebaseApp = () => {
     console.log("success");
   };
   // fetching single document
+  useEffect(() => {
+    // Firestore queries
+    // const colRefQuery = collection(db, "posts");
+    const q = query(
+      colRef,
+      where("author", "==", "Puu"),
+      orderBy("createdAt"),
+      limit(5)
+    );
+    onSnapshot(q, (snapshot) => {
+      let posts = [];
+      snapshot.docs.forEach((doc) => {
+        posts.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      console.log(posts);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  // Auth: Login, Logout, Register
   return (
     <div className="p-10">
       <div className="w-full max-w-[500px] mx-auto bg-white shadow-lg p-5 mb-10">
